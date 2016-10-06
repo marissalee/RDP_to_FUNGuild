@@ -6,7 +6,7 @@ library(tidyr)
 #df.example <- read.table("otu_table_example.txt", sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 
 # current df from RDP output
-df.rdpout <- read.table("data/RDPUnite.txt", sep = "\t", stringsAsFactors = FALSE)
+df.rdpout <- read.table("data/head_RDPUnite.txt", sep = "\t", stringsAsFactors = FALSE)
 
 # current otu table
 df.otutab <- read.table("data/otuTable.tab", sep = "\t", header = TRUE, stringsAsFactors = FALSE)
@@ -61,7 +61,7 @@ class <- data$class
 order <- data$order
 family <- data$family
 genus <- data$Genus
-species <- data$Species
+species <- data$genus_species
 
 data[,"taxonomy"]<-paste(perc, 
                          genus_species, eucode, shcode, repinfo,
@@ -86,7 +86,7 @@ df.otu.tax <- merge(df.otutab, ind.tax)
 
 
 ################
-write.table(df.otu.tax, file="output/otuTable_forFUNG.tab", sep = "\t")
+write.table(df.otu.tax, file="output/otuTable_forFUNG.tab", sep = "\t", row.names = FALSE)
 
 df.test<-read.table("output/otuTable_forFUNG.tab")
-colnames(df.test)[colnames(df.test) == "taxonomy"]
+#colnames(df.test)[colnames(df.test) == "taxonomy"]
