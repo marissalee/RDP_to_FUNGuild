@@ -86,7 +86,7 @@ df.otu.tax <- merge(df.otutab, ind.tax)
 
 
 ################
-write.table(df.otu.tax, file="output/otuTable_forFUNG.tab", sep = "\t", row.names = FALSE)
+write.table(df.otu.tax, file="output/otuTable_forFUNG.tab", sep = "\t", row.names = FALSE, quote = FALSE)
 
-df.test<-read.table("output/otuTable_forFUNG.tab")
+#df.test<-read.table("output/otuTable_forFUNG.tab")
 #colnames(df.test)[colnames(df.test) == "taxonomy"]
